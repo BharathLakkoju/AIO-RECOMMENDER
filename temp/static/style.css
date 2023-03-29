@@ -1,0 +1,18 @@
+.movie-list, .slist {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(4, 1fr);
+}
+img {
+    width: 300px;
+    height: 400px;
+}
+.card, .scard {
+    width: 300px;
+    height: 500px;
+}
+h5 {
+    margin: 0;
+    padding: 10px;
+}

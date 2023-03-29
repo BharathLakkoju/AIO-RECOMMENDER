@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
     <form method="POST">
         {% csrf_token %}
@@ -8,24 +8,29 @@
         <button type="submit">Submit</button>
     </form>
 
+    <h2>Recommended Movies</h2>
+    <div class="list">
     {% if recommended_movies %}
-        <h2>Recommended Movies</h2>
         <div class="movie-list">
         {% for recommended_movie in recommended_movies %}
-            <img src="https://image.tmdb.org/t/p/w500{{ recommended_movie.poster_path }}"  width="100" height="150">
-            <h5>{{ recommended_movie.title }}</h1>
+            <div class="card">
+                <img src="https://image.tmdb.org/t/p/w500{{ recommended_movie.poster_path }}" >
+                <h5>{{ recommended_movie.title }}</h1>
+            </div>
         {% endfor %}
         </div>
     {% endif %}
-    {% if recommended_songs %}
+    </div>
+
     <h2>Recommended Songs</h2>
-    <ul>
+    {% if recommended_songs %}
+    <div class="slist">
     {% for recommended_song in recommended_songs %}
-        <li>
+        <div class="scard">
             <img src="{{ recommended_song.album.images.0.url }}" alt="{{ recommended_song.album.name }}" width="100" height="100">
-            {{ recommended_song.name }} - {{ recommended_song.artists.0.name }}
-        </li>
+            <h5>{{ recommended_song.name }} - {{ recommended_song.artists.0.name }}</h5>
+        </div>
     {% endfor %}
-    </ul>
+    </div>
 {% endif %}
 {% endblock %}
