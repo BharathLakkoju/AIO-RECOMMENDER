@@ -1,0 +1,71 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block title %}
+    AIO - Recommender
+{% endblock %}
+{% block content %}
+<div class="frm-container">
+    <form method="POST" class="frm">
+        {% csrf_token %}
+        <div id="input-field">
+            <input class="inp" type="text" id="movie_name" name="movie-name" placeholder="Enter a Movie Name...">
+            <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass fa-sm" style="color: #ffffff;"></i>&ensp;Search</button>
+        </div>
+    </form>
+</div>
+{% if search %}
+<div class="list-container">
+    <h1 class="trend-list">Search Result</h1>
+</div>
+<div class="grids">
+    <div class="grid-card">
+        <div class="overlay"></div>
+        <img class="item-img" src="https://image.tmdb.org/t/p/w500{{ search.poster_path }}" alt="" width="300px" height="400px">
+        <div class="grid-desc">
+            <h5 class="vname">{{ search.title }}</h5>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% if movies %}
+<div class="list-container">
+    <h1 class="trend-list">Recommended Movies</h1>
+</div>
+<section class="list">
+    <div class="grids">
+        {% for movie in movies %}
+        <div class="grid-card">
+            <div class="overlay"></div>
+            <img class="item-img" src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="" width="300px" height="400px">
+            <div class="grid-desc">
+                <h5 class="vname">{{ movie.title }}</h5>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+{% if songs %}
+<div class="list-container">
+    <h1 class="trend-list">Recommended Songs</h1>
+</div>
+<section class="list">
+    <div class="grids">
+        {% for song in songs %}
+        <a target="__blank" href="{{ song.uri }}">
+            <div class="song-grid-card">
+                <img class="song-item-img" src="{{ song.poster }}" alt="" width="300px" height="300px">
+                <div class="song-grid-desc">
+                    <h4 class="vname">{{ song.name }}</h4><div></div>
+                    <div class="fl-desc">
+                        <h5 class="art-name">{{ song.artist }}</h5>
+                        <h5 class="name">{{ song.release_date }}</h5>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+{% endblock %}
