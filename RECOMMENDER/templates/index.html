@@ -28,11 +28,11 @@
     <section class="list">
         <div class="grids">
             {% for song in songs %}
-            <a target="__blank" href="{{ song.uri }}">
+            <a target="__blank" href="{{ song.spotify_link }}">
                 <div class="song-grid-card">
                     <img class="song-item-img" src="{{ song.poster_path }}" alt="" width="300px" height="300px">
                     <div class="song-grid-desc">
-                        <h4 class="vname">{{ song.name }}</h4><div></div>
+                        <h4 class="vname">{{ song.title }}</h4><div></div>
                         <div class="fl-desc">
                             <h5 class="art-name">{{ song.artist }}</h5>
                             <h5 class="name">{{ song.release_date }}</h5>
