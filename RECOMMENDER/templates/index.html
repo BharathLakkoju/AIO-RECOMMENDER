@@ -1,4 +1,5 @@
 {% extends 'Base.html' %}
+{% load static %}
 {% block title %}
     AIO - All in One Recommendation System
 {% endblock %}
@@ -7,4 +8,39 @@
     <div class="site-link">
         <a href="{% url 'recommender' %}" class="sitetransfer">Go to Recommender</a>
     </div>
+    {% comment %} top movies {% endcomment %}
+    <h1 class="trend-list" style="text-align: left; padding-left: 5%;">Popular Movies</h1>
+    <section class="list">
+        <div class="grids">
+            {% for movie in movies %}
+            <div class="grid-card">
+                <div class="overlay"></div>
+                <img class="item-img" src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="" width="300px" height="400px">
+                <div class="grid-desc">
+                    <h5 class="vname">{{ movie.title }}</h5>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <br><br>
+    <h1 class="trend-list" style="text-align: left; padding-left: 5%;">Popular Songs</h1>
+    <section class="list">
+        <div class="grids">
+            {% for song in songs %}
+            <a target="__blank" href="{{ song.uri }}">
+                <div class="song-grid-card">
+                    <img class="song-item-img" src="{{ song.poster_path }}" alt="" width="300px" height="300px">
+                    <div class="song-grid-desc">
+                        <h4 class="vname">{{ song.name }}</h4><div></div>
+                        <div class="fl-desc">
+                            <h5 class="art-name">{{ song.artist }}</h5>
+                            <h5 class="name">{{ song.release_date }}</h5>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
 {% endblock %}

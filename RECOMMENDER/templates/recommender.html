@@ -4,6 +4,10 @@
     AIO - Recommender
 {% endblock %}
 {% block content %}
+<h1 class="heading">welcome to <span>AIO</span></h1>
+    <div class="site-link">
+        <a href="{% url 'index' %}" class="sitetransfer">Homepage</a>
+    </div>
 <div class="frm-container">
     <form method="POST" class="frm">
         {% csrf_token %}
@@ -11,6 +15,9 @@
             <input class="inp" type="text" id="movie_name" name="movie-name" placeholder="Enter a Movie Name...">
             <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass fa-sm" style="color: #ffffff;"></i>&ensp;Search</button>
         </div>
+        {% if error %}
+        <h4 style="color:white;text-align:center;">{{error}}</h4>
+        {% endif %}
     </form>
 </div>
 {% if search %}

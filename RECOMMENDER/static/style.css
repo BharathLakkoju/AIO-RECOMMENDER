@@ -47,23 +47,22 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
 }
 .btn {
-    padding: 14px 20px;
+    padding: 17px 20px;
+    cursor: pointer;
     border: 0;
-    font-size: medium;
     margin: 0;
     border-radius:  0 50px 50px 0;
     color: whitesmoke;
     background-color: #3fbbff;
 }
 .inp {
+    padding: 15px 30px;
     border-radius: 50px 0 0 50px;
-    padding: 10px 30px;
+    font-size: medium;
     border: 0;
     width: 500px;
-    height: 50px;
 }
 .inp::placeholder {
     font-weight: bold;
@@ -75,12 +74,12 @@ html, body {
 .list-container {
     display: flex;
     width: 100%;
-    padding: 5% 0 0 0;
+    padding: 1% 0 0 0;
 }
 .grids {
     display: grid;
     grid-template-columns: repeat(auto-fill, 300px);
-    padding-bottom: 10%;
+    padding-bottom: 1%;
     gap: 50px 70px;
     margin: auto;
     justify-content: center;
@@ -106,7 +105,7 @@ html, body {
     text-shadow: 0px 0px 10px #333333;
 }
 .grid-card:hover {
-    box-shadow: 0px 0px 30px whitesmoke;
+    box-shadow: 0px 0px 50px whitesmoke;
 }
 .item-img {
     border-radius: 30px;
@@ -146,10 +145,10 @@ html, body {
     width: inherit;
     align-items: center;
     justify-content: center;
-    color: #aaaaaa;
+    color: whitesmoke;
 }
 .song-grid-card:hover {
-    box-shadow: 0px 0px 30px whitesmoke;
+    box-shadow: 0px 0px 50px whitesmoke;
 }
 .vname {
     margin: 5px 0;
